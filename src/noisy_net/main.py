@@ -6,8 +6,7 @@ from datetime import datetime
 import gymnasium as gym
 import torch
 
-from NoisyNetDQN import NoisyNetDQN_agent
-from utils import evaluate_policy, str2bool
+from noisy_net import evaluate_policy, str2bool, NoisyNetDQN_agent
 
 """Hyperparameter Setting"""
 parser = argparse.ArgumentParser()
@@ -103,8 +102,7 @@ def main():
         timenow = str(datetime.now())[0:-10]
         timenow = " " + timenow[0:13] + "_" + timenow[-2::]
         writepath = (
-            f"runs/{algo_name}-{BriefEnvName[opt.EnvIdex]}_S{opt.seed}_"
-            + timenow
+            f"runs/{algo_name}-{BriefEnvName[opt.EnvIdex]}_S{opt.seed}_" + timenow
         )
         if os.path.exists(writepath):
             shutil.rmtree(writepath)
@@ -131,7 +129,7 @@ def main():
     else:
         total_steps = 0
         while total_steps < opt.Max_train_steps:
-            s, info = env.reset(
+            s, _info = env.reset(
                 seed=env_seed
             )  # Do not use opt.seed directly, or it can overfit to opt.seed
             env_seed += 1

@@ -273,9 +273,9 @@ wheels = [
 ]
 
 [[package]]
-name = "noisynet-dqn-pytorch"
+name = "noisy-net"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "gymnasium" },
     { name = "numpy" },

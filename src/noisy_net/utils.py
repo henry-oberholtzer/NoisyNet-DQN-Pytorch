@@ -9,7 +9,7 @@ def evaluate_policy(env, agent, turns=3):
     agent.q_net.eval()  # Take deterministic actions at test time
     total_scores = 0
     for j in range(turns):
-        s, info = env.reset()
+        s, _info = env.reset()
         done = False
         while not done:
             a = agent.select_action(s)

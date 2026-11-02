@@ -1,5 +1,5 @@
 [project]
-name = "noisynet-dqn-pytorch"
+name = "noisy_net"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -10,3 +10,10 @@ dependencies = [
     "ruff>=0.17.3",
     "torch>=2.15.0",
 ]
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13"]
+build-backend = "uv_build"
+
+[project.scripts]
+noisy-net = "noisy_net.main:main"

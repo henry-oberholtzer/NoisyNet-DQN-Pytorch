@@ -4,8 +4,7 @@ import torch
 import torch.nn.functional as F
 from torch import nn
 
-from utils import NoisyLinear
-
+from noisy_net import NoisyLinear
 
 def build_net(layer_shape, activation, output_activation):
     """Build networks with For loop"""
